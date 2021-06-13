@@ -1,0 +1,39 @@
+<%- include("../partials/header") %> <%- include("../partials/navbar") %>
+
+<div class="container">
+  <%- include("../partials/flash") %>
+
+  <h3 class="text-center mt-2">All Orders</h3>
+  <table class="table table-bordered border-primary mt-4 mb-3">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Order Date</th>
+        <th scope="col">Status</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <% for(let order of allOrders ){ %>
+    <tbody>
+      <tr>
+        <td><%= order._id %></td>
+        <td><%= order.date %></td>
+        <td><%= order.status %></td>
+        <td><%= order.amount %></td>
+        <td className="bg-secondary">
+          <!-- Button trigger modal -->
+          <a
+            href="/admin/<%= currentUser._id %>/order/<%= order._id %> "
+            type="button"
+            class="btn btn-primary"
+          >
+            Update
+          </a>
+        </td>
+      </tr>
+    </tbody>
+    <% } %>
+  </table>
+</div>
+<%- include("../partials/footer") %>
