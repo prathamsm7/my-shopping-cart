@@ -43,8 +43,7 @@ router.post("/pay", isLoggedIn, (req, res) => {
       params,
       config.PaytmConfig.key,
       function (err, checksum) {
-        var txn_url =
-          "https://securegw-stage.paytm.in/theia/processTransaction"; // for staging
+        var txn_url ="https://securegw-stage.paytm.in/theia/processTransaction"; // for staging
 //         var txn_url = "https://securegw.paytm.in/theia/processTransaction"; // for production
 
         var form_fields = "";
