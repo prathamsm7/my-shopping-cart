@@ -18,7 +18,7 @@ router.get("/user/:userId/orders", isLoggedIn, async (req, res) => {
   try {
     const userInfo = await User.findById(req.params.userId).populate({
       path: "orders",
-      options: { sort: { createdAt: -1 } },
+      options: { sort: { date: -1 } },
       populate: {
         path: "orderedProducts",
         model: "Product",
